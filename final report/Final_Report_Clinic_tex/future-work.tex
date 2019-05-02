@@ -1,0 +1,28 @@
+%%% Copyright (C) 2004 Claire M. Connelly and 
+%%% the Department of Mathematics, Harvey Mudd College.
+%%%
+%%% This file is part of the sample thesis document provided to HMC
+%%% mathematics students.
+%%%
+%%% See the COPYING document, which should accompany this
+%%% distribution, for information about distribution and modification
+%%% of the document and its components.
+
+\chapter{Future Work}%
+\label{sec:figs-and-tabs}
+
+\subsection{Improvements to Recommender System}
+
+The current recommender algorithm requires that we specify weights to determine how much each input to the system contributes to a match result. This manual aspect of our algorithm could be removed by employing machine learning techniques to learn weights that lead to optimal matchings. This however would only be feasible after PilotCity has accumulated large enough employer-classroom matches and some measure of the success of the matchings. 
+
+\subsection{Possible Extensions and Applications of Insights Engine}
+This report detailed how we investigated the potential to extract insights in the form of topic distributions from syllabi. This idea could be used by PilotCity to assist in the onboarding process where teachers have to supply keywords that describe the classrooms they teach. That is, PilotCity can have teachers upload course syllabus for a specific classroom and our trained insights engine would generate the top keywords that describe the nature of the class rather than having the teacher manually fill out this information.
+\newline
+
+One application of our insights engine that we explored in the report was the generation of a guide with definitions of overarching topics pertaining to a syllabus. We could improve these automatically generated guides to provide more contextualized information by performing network analysis on Wikipedia's clickstream data to gain insights on what pages people visit right before and right after going to the Wikipedia page pertaining to a topic.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% TeX-master: "master"
+%%% End: 

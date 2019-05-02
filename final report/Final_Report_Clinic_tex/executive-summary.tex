@@ -1,0 +1,37 @@
+%%% Copyright (C) 2004 Claire M. Connelly and 
+%%% the Department of Mathematics, Harvey Mudd College.
+%%%
+%%% This file is part of the sample thesis document provided to HMC
+%%% mathematics students.
+%%%
+%%% See the COPYING document, which should accompany this
+%%% distribution, for information about distribution and modification
+%%% of the document and its components.
+
+\chapter{Executive Summary}%
+\label{sec:executive-summary}
+
+
+The goal of this project is to optimize automation, scalability, and user engagement of PilotCity programming. Specifically, we want to automate a process which has historically been done by hand. As PilotCity grows, matching employers and classrooms by hand will be intractable. Our work will enable PilotCity to expand, reaching more classrooms and helping more students gain work-based learning experience. 
+
+	The first step was to create an onboarding website, where employers and teachers could log in and input all their relevant details. These user inputs were then used to generate a list of recommendations for users, which could be further filtered. This website is also being used as a platform for students, teachers, and employers to engage with each other, and look at their milestones.
+	
+	Working off of designs provided by PilotCity, we started building the frontend of this website. This required us to try our hand at HTML, CSS, and JavaScript. Upon each successive draft, we showcased our product to PilotCity users and gained valuable feedback from them. We then helped the PilotCity local team onboard and take over this section while we moved onto building the employer-classroom recommendation system. We conducted more user interviews with both teachers and employers in order to gauge what they thought would be relevant for our recommendation system. 
+	
+	The main algorithm behind the system involves scoring unknown input. Rather than give users a long list of predefined responses, our user feedback suggested that a limited set of open-ended questions would be better able to capture the diverse interests and skill sets of our users. Our scoring for open-end text responses is currently based on the GloVe model. This model is designed to take in words as an input and outputs vectors reflecting semantic meaning and relationships between words based on how often they appear in similar contexts. 
+	
+
+This algorithm is already incorporated into the website so that an employer logged in is able to see a ranked list of all the classrooms based on their preferences and filters, and likewise a logged in teacher can see a ranked list of employers for each of their classrooms. This ranking is based on the similarity score of their responses as determined by the GloVe model. 
+
+Our project also focused on extracting educational priorities from uncurated data sources, such as class syllabi, school handbooks, and employer websites. We decided to use Topic Modeling to visualize high level themes represented in an input document. 
+
+Topic Modeling is a statistical model that represents documents by a specific number of topics. For each input document, a topic is represented by a list of words ranked by their relevance within the topic.
+We experimented with two types of topic models, Latent Dirichlet Allocation (LDA) and Non-negative Matrix Factorization (NMF). 
+
+We built a module that pre-trains a topic model on an input set of PDF documents and then extracts and visualizes the topic distribution of a single input PDF document. This module provides a structure for general data, restricted only by its format as a PDF. We tested our module on a set of course syllabi extracted from the website of Las Positas College, which contains all syllabi for all courses offered. We also investigated the creation of an auto-generated study guide using the top 3 words in the 5 most relevant topics pertaining to the syllabus of a particular classroom.  
+
+In Chapter 2, we give an introduction to this clinic project. In Chapter 3, we document the web development process, which included the recommender system that dominated the first semester of clinic. Specifically, we will discuss our approaches, our findings, our implementations, and the societal import of our work. In Chapter 4 we provide an overview of our topic modeling techniques and visualizations, in Chapter 5 we provide a conclusion, and finally, in Chapter 6 we discuss some future work.
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 

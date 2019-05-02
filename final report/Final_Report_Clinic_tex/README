@@ -1,0 +1,67 @@
+The Harvey Mudd College Sample Thesis and Clinic Report
+=======================================================
+
+This document is meant to serve as an instructive example for
+students taking Math 197 (Senior Thesis), Math 193 (Mathematics
+Clinic), and other Clinic or Thesis classes at Harvey Mudd College.
+
+This distribution consists of a number of LaTeX source files along
+with several images that are used in the typeset document.  There
+are two ``master'' documents -- the sample-clinic-report.tex file
+and the sample-thesis-report.tex file.
+
+
+Typesetting the Documents
+-------------------------
+
+You can get a typeset sample thesis or sample Clinic report by
+typesetting the appropriate master document.  The
+sample-clinic-report document assumes that you have a current
+version of the hmcclinic LaTeX class somewhere in your TeX system's
+search path.  Similarly, sample-thesis-report assumes that you have
+a current version of the hmcthesis class.
+
+If you are typesetting these documents on an HMC math Linux system,
+you do not need to do anything special to obtain a copy of either
+class file -- they are installed in the shared TEXMF tree.
+
+If you are working with this document on your own machine, you will
+probably want to download one or both of these classes, which
+contain the class file and some support files (such as image files
+of the college's logo and seal) that are used in typeset reports.
+
+If you're at Mudd and your department doesn't have the classes
+installed, please let the people running your machines know that the
+classes are available and where they can find them!
+
+The classes are available from the mathematics department's LaTeX
+class page, at <http://www.math.hmc.edu/computing/support/tex/classes/>.
+
+
+Licensing
+---------
+
+This version of the HMC sample thesis/Clinic report document is
+licensed under the Creative Commons Attribution-NonCommercial-ShareAlike
+license.  See the COPYING file for more information about the
+license and its terms.
+
+
+Problems, Questions, Comments, Corrections
+------------------------------------------
+
+We are eager to hear about your experiences using this document,
+especially if you have problems.  Please send any such information
+to us at <latex@math.hmc.edu>.
+
+
+Thanks for taking the time to download the sample document, and
+enjoy!
+
+
+-- 
+Claire Connelly, Systems Administrator
+Department of Mathematics
+Harvey Mudd College
+
+$Id$

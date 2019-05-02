@@ -1,0 +1,335 @@
+%%% Copyright (C) 2004 Claire M. Connelly and 
+%%% the Department of Mathematics, Harvey Mudd College.
+%%%
+%%% This file is part of the sample thesis document provided to HMC
+%%% mathematics students.
+%%%
+%%% See the COPYING document, which should accompany this
+%%% distribution, for information about distribution and modification
+%%% of the document and its components.
+
+\chapter{Tips and Tricks}
+
+\latex is a very complicated and powerful language.  As a result,
+there are many sneaky aspects to it that will cause you problems if
+you don't know about them.  This chapter covers some of these tricky
+bits.
+
+
+\section{Special Characters}%
+\label{sec:special-chars}
+
+\tex and \latex have a number of ``special'' characters that are
+reserved for use by the language.  Using these characters in your
+writing requires you to do a bit of extra work, as shown in
+Table~\ref{tab:special-chars}.
+
+\begin{table}
+\begin{tabular}{llll}
+\toprule
+\multicolumn{2}{l}{Character}   & Function     & To Typeset\\
+\midrule
+\#          & octothorp      & Macro parameter character  & \verb+\#+\\
+\$          & dollar sign    & Start/end inline math mode & \verb+\$+\\
+\%          & percent sign   & Comment character          & \verb+\%+\\
+\&          & ampersand      & Column separator           & \verb+\&+\\
+\_          & underscore     & Subscripts, as in $x_2$    & \verb+\_+\\
+\{, \}      & braces         & Parameters                 & \verb+\{, \}+\\
+\~{}        & tilde          & Nonbreaking space          & \verb+\~{}+ \\
+\^{}        & caret          & Superscripts, as in $x^2$  & \verb+\^{}+\\
+\verb+\+    & backslash      & Starts commands   & \command{verb}\verb+|\|+ \\
+\bottomrule
+\end{tabular}
+\caption[Special characters in \latex]{Special characters in \latex.}%
+\label{tab:special-chars}
+\end{table}
+
+
+\section{Accents}
+
+There are a variety of commands for producing diacritical accents, as in
+\begin{quote}
+  Paul Erd\H{o}s s'est reveill\'{e} t\^{o}t pour enseigner le
+  fran\c{c}ais \`{a} son fr\`{e}re et sa s\oe{}ur.
+\end{quote}
+
+See Section~2.4.7 in \emph{Math into \LaTeX} \citep{gratzer-mil} for
+information about accents (and some handy charts!).
+
+
+\section{Comments and Spacing}
+
+You can add comments to your source file that won't appear in your
+typeset document by starting them with a \verb+%+.  Any line that
+starts with a \verb+%+ will be ``commented out'', and won't be
+interpreted.  You can also add a \verb+%+ at the end of a line, with
+or without text, and it will make the end of the line (including the
+linebreak!) disappear.
+
+For example,
+\begin{quote}
+\begin{verbatim}
+% This line is a comment line.
+This line is not a comment line.
+
+This line has a comment at the end%
+% This line should be invisible.
+of the line.
+\end{verbatim}
+\end{quote}
+will typeset as
+\begin{quote}
+% This line is a comment line.
+This line is not a comment line.
+
+This line has a comment at the end%
+% This line should be invisible.
+of the line.
+\end{quote}
+
+Notice the lack of a space in ``endof'' on the last line of the
+typeset output.  \tex expects to find  a carriage-return character at the end
+of a line, and interprets that carriage return as an interword space.
+If you comment out the end of a line, you also comment out the
+carriage return on that line, and you'll have words run into one
+another unless you have a space before the \verb+%+.
+
+\tex collapses multiple spaces into one, and ignores whitespace at the
+beginning of a line.  Thus
+\begin{quote}
+\begin{verbatim}
+No spaces.
+
+    Five spaces.
+
+    A tab.
+\end{verbatim}
+\end{quote}
+typesets as
+\begin{quote}
+No spaces.
+
+    Five spaces.
+
+    A tab.
+\end{quote}
+
+(The lines are indented because they are at the start of a paragraph.
+You can suppress paragraph indentation with \command{noindent}.)
+
+Paragraphs are delimited by two carriage returns (with or without
+whitespace between them).
+
+
+\section{Quotes and Dashes}
+
+Because \tex was designed to do high-quality typesetting, it cares
+about which quotation mark and dash you're using, and requires you to
+specify the correct punctuation (although most text editors with
+special \tex modes will do the substitution for you).
+
+Open and close double quotes---`` and ''---are created by typing
+\verb+``+ and \verb+''+, respectively.  The double-quote mark,
+\verb+"+, is typeset as " (and is useful for abbreviating ``inches'',
+as in 36").
+
+Single-quotes, ` and ', are typed with \verb+`+ and \verb+'+.
+
+There are three basic forms of dashes:
+\begin{enumerate}
+\item The hyphen, -, is typed as a single dash, \verb+-+
+\item The en dash, --, is typed as two dashes, \verb+--+
+\item The em dash, ---, is typed as three dashes, \verb+---+
+\end{enumerate}
+
+Hyphens are used in hyphenated words, as in ``high-quality''.  En
+dashes are used to indicate ranges, as in ``there are 35--50 of
+them''; balanced relationships, as in ``U.S.--European agreements'';
+and for extended hyphenated phrases, such as ``reddish-green--colored
+item''.   Em dashes are used to separate independent phrases, as in
+``John believed---honestly believed---that he was right''; and to
+indicate interruptions in dialogue, as in
+\begin{quotation}
+  ``I hear you---''
+
+  ``No, you don't!''
+\end{quotation}
+
+Note that you shouldn't type spaces around any of these dashes---they
+run directly against the words on either side, as in \verb+35--50+.
+
+
+\section{Controlling Pagination}%
+\label{sec:pagination}
+
+Sometimes you may need to override \LaTeX's choices for line or page
+breaks.  The \com{pagebreak} command causes \LaTeX\ to start a new
+page immediately after the command appears.  The \verb|\\| command can
+be used to tell \LaTeX\ where to break a line.
+
+In general, you should let \LaTeX\ have its way, especially if your
+document is going to be published by someone else, as they will
+undoubtedly have many changes that will have to be made before your
+document works for them.  If you do need to tinker with your
+document's layout, you should avoid doing so until you're very nearly
+done.  If you go back and add or remove text after forcing \LaTeX\ to
+do your will, you may find that new blank spaces appear as a result of
+your changes.
+
+George Gr\"{a}tzer's \emph{Math into \LaTeX} \citeyearpar{gratzer-mil}
+includes a chapter on preparing books that covers this topic in depth.
+
+
+\section{Using Graphics with \pdftex}%
+\label{sec:pdftex-graphics}
+
+\pdftex supports PDF and JPEG as native graphic file formats.  EPS is
+not directly supported---to use EPS figures with \pdftex, you must
+first convert your EPS files to PDF.  
+
+If you're using a graphics program such as Adobe Illustrator to
+prepare your figures, just save them as PDF instead of (or in addition
+to) EPS.
+
+If you don't have access to the tool you used to create your images,
+but you still need to convert them, you can use the program
+\prog{epstopdf}.
+
+\prog{epstopdf} writes to standard output by default, so you'll have
+to redirect the output to a file, as in
+\begin{quote}
+\begin{verbatim}
+unix% epstopdf foo.eps > foo.pdf
+\end{verbatim}
+\end{quote}
+
+To convert a whole slew of files, you could use a command such as the
+following (with the \prog{csh}):
+\begin{quote}
+\begin{verbatim}
+unix% foreach f ( `find . -type f -name '*.eps'`)
+foreach? eps2pdf $f -o=$f:r.pdf
+foreach? end
+\end{verbatim}
+\end{quote}
+
+
+\section{Fonts Look Fuzzy in PostScript or PDF Files}%
+\label{sec:fuzzy-fonts}
+
+When Donald~E. Knuth originally wrote \tex, most typesetting was done
+by trained typesetters using expensive equipment to cast molten lead
+into runs of type.  Knuth created his own font family, Computer
+Modern, by writing a tool called \MF{}.  \MF{} reads in programs that
+define various aspects of every character in a font, and generates
+bitmap representations of those characters at a particular resolution,
+ready for printing.
+
+Unfortunately, bitmaps with resolutions suited for printing look
+terrible on screen.  The solution is to use Type~1 PostScript fonts
+instead of bitmaps. If you're using \pdftex (or \pdflatex), you get
+Type~1 fonts without having to do anything special (but see
+Section~\ref{sec:pdftex-graphics}).
+
+If you're using \prog{dvips} to get PostScript as an intermediate step
+(using \prog{ps2pdf} or Acrobat Distiller to get PDF), you can force
+\prog{dvips} to use Type~1 fonts by specifying the \prog{-Ppdf} flag,
+as in
+\begin{quote}
+\begin{verbatim}
+unix% dvips -Ppdf foo.dvi -o foo.ps
+\end{verbatim}
+\end{quote}
+
+
+\section{Debugging}
+
+One of the trickiest things about using \latex is interpreting
+\latex's sometimes cryptic error messages.
+
+In particular, the line numbers that \latex reports are often not the
+line numbers where the problem \emph{is}, but the line numbers where
+\latex noticed there was a problem.
+
+One useful way of getting a bit more context to help you understand
+the problem is to put the line
+\begin{quote}
+\begin{verbatim}
+\setcounter{errorcontextlines}{1000}
+\end{verbatim}
+\end{quote}
+in the preamble of your document, which will provide you with a
+(perhaps excessive) amount of context for an error.
+
+The most common errors are
+\begin{itemize}
+\item Using one of the special characters (see
+Section~\ref{sec:special-chars})
+\item Leaving off or mismatching a brace or bracket
+\item Leaving out or swapping arguments to a command or environment
+\end{itemize}
+
+If you've tried everything and you can't find the source of an error
+message, try the following procedure:
+\begin{enumerate}
+\item Create a new file, and copy your preamble into it, followed by
+  an empty \env{document} environment
+\item Add a word to the \env{document} environment so that \tex will
+  have something to typeset
+\item Try typesetting the new document---if you have an error, the
+  problem is in your preamble
+\item If the document typesets, get rid of the single word you'd put
+  in the \env{document} environment, copy half of your original
+  document's body into the new file, and typeset that
+\item If you see your error, then continue halving the document until
+  you narrow it down to the problem section
+\item If you don't see your error, try the other half
+\end{enumerate}
+
+\subsection{The \protect\env{comment} Environment}
+
+If you don't want to go through the process of copying your document,
+you can also use the \env{comment} environment, which allows you to
+``comment out'' anything between the begin and end environment
+commands.  The \env{comment} environment is provided by the
+\package{verbatim} package, which also defines new versions of the
+\env{verbatim} and \env{verbatim*} environments.
+
+\subsection{The \protect\command{includeonly} Command}
+
+If you've written your document in such a way that each chapter or
+other significant subdivision is stored in a separate file and
+included in your master document with an \command{include} command,
+then you can also use the \command{includeonly} command to limit the
+parts of your document that will be typeset to some subset.
+
+\command{includeonly} takes as its argument a comma-separated list of
+files that are \command{include}d in your document.  If you place each
+item on a separate line, you can comment and comment those lines to
+control which files are included in a \latex run.  For example,
+\begin{quote}
+\begin{verbatim}
+\includeonly{
+a,
+% b,
+% c,
+d}
+\end{verbatim}
+\end{quote}
+will allow you to typeset the contents of the files \file{a} and
+\file{d}, without typesetting the contents of \file{b} and \file{c}.
+A nice side-effect is that the auxilliary files for these files are
+not changed, so that references to labels in the files not being
+typeset will still be expanded in the files that are typeset.  (If the
+pagination changes, of course, any \command{pageref} commands will be
+incorrect; the same applies if any additional structural commands are
+added at the same level as the topmost level in the excluded
+files---that is, if you add a new chapter in a file called \file{aa}
+between the line that includes \file{a} and \file{b}, the chapter
+numbers will be incremented for the typeset files but not for the
+files you're not typesetting.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 

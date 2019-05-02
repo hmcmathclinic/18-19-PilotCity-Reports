@@ -1,0 +1,51 @@
+%%% Copyright (C) 2004 Claire M. Connelly and 
+%%% the Department of Mathematics, Harvey Mudd College.
+%%%
+%%% This file is part of the sample thesis document provided to HMC
+%%% mathematics students.
+%%%
+%%% See the COPYING document, which should accompany this
+%%% distribution, for information about distribution and modification
+%%% of the document and its components.
+
+\chapter{Introduction}%
+\label{sec:introduction}
+
+
+\section{Sponsors} \label{background}
+
+Our project is unique because we have two independent stakeholders (IES and PilotCity) who have different but connected areas of interest.
+\begin{itemize}
+    \item \textbf{Institute of Education Sciences (IES)} is the statistics, research, and evaluation arm of the U.S. Department of Education. Their mission is to provide scientific evidence on which to ground education practice and policy and to share this information in formats that are useful and accessible to educators, parents, policymakers, researchers, and the public (Institute of Education Science Website, 2019).
+    \item \textbf{PilotCity}, on the other hand, is a startup that was created to help transform small to medium sized cities into innovation engines by converting local high school classrooms into workforce incubators. The motivation behind PilotCity is to generate talent within a city, rather than attract it from the outside. To realize this vision, PilotCity connects local high schools and employers thereby empowering students at an early age and promoting the idea of project based learning.
+\end{itemize}
+
+\section{Problem Statements}
+
+\subsection{PilotCity}
+
+In the past, PilotCity has manually performed logistical tasks like recruiting, signing up teachers and employers and matching employers to classrooms. However, manual program delivery is a bottleneck to PilotCity's capacity to scale and thus PilotCity aims to automate most of their processes like enrollment and matchmaking with the aid of the Harvey Mudd Clinic program. Our team has thereby been tasked with improving user engagement and scalability of PilotCity programming by helping design and create a web interface that students, teachers and employers can better interface with as well as building a recommender system to facilitate matching employers to high school classrooms. 
+
+\subsection{IES}
+
+While we help facilitate PilotCity programming, we are also tasked by IES to research and come up with new ways to gain insights on educational priorities and approaches from uncurated educational resources like course websites, syllabi and teacher resumes. To fulfill this task, we decided to employ topic modeling techniques on a collection of syllabi pertaining to a college to make inferences on the nature of a college's curriculum. This exploration was motivated by work by Sekiya et al who present a similar investigation to ours but with a slightly different angle and scope (Sekiya, Matsuda, \& Yamaguchi, 2017). Rather than looking at all course subjects across time at one school, they narrow the focus to computer science curriculum across multiple schools within the same time frame. Furthermore, rather than having to train a topic model themselves, they leverage the pre-existing CS2013 Body of Knowledge (BOK), produced by the ACM and IEEE Computer Society and detailing the 18 primary topics in Computer Science curriculum as of 2013. Sekiya et al. used those 18 topics to train a simplified, supervised Latent Dirichlet Allocation model (ssLDA) which then output, for a given unseen computer science syllabus, how much each of those 18 core topics were represented. However, since we lack predefined topics, our work involves training unsupervised topic models to discover the core topics across all disciplines at Las Positas College in Livermore, California.
+
+
+
+%% TODO
+%%
+%% Add sections addressing
+%%
+%%  More about specific things that we cover
+%%
+%%  Lecturing about how to do various things
+%%
+%%    naming chapter filess sensibly
+%%
+%%  Contents of the class file and example document
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 
